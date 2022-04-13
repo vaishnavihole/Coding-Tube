@@ -1,0 +1,14 @@
+.video-card-container{
+    background-color: white;
+    width: 400px;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 8px rgb(0, 0, 0,0.5);
+}
+
+
+video-card-thumbnail{
+    width: 100%;
+    
+}
