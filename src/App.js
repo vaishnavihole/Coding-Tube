@@ -1,17 +1,20 @@
 import './App.css';
-import VideoCard from './VideoCard/VideoCard';
+import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import Home from './Home/Home'
+import VideoPlayer from './VideoPlayer/VideoPlayer'
 
 function App() {
   return (
-    <div className="container'">
-    <div className="title-container">
-    <h1 className="text-center">Coding Tube</h1>
-    </div>
+    <>
+    <BrowserRouter>
+    <Routes>
+       <Route path="/" element={<Home />} />
+       <Route path='/player' element={<VideoPlayer />} />
+    </Routes>
+    </BrowserRouter>
+    </>
+  )
 
-    <VideoCard />
-   </div>
-     
-  );
+  
 }
-
 export default App;

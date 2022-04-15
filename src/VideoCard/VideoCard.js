@@ -1,13 +1,15 @@
 import React from 'react'
 import './VideoCard.css'
 
-function VideoCard() {
+function VideoCard(props) { 
     return (
         <div className="video-card-container">
-        <img src="https://i.ytimg.com/an_webp/Z68FFdyNYDg/mqdefault_6s.webp?du=3000&sqp=CIDx2pIG&rs=AOn4CLCU_viLG5SJ-jd5d_HPzkwZmy4y2Q"
+        <img src={props.thumbnail}    
          className="video-card-thumbnail"/>
-         
-         <h2>Video Title</h2>
+
+         <h6 className="video-card-title">{props.title}</h6>
+          <p className="video-card-description">{props.description}</p>
+                    
         </div>
     )
 }
