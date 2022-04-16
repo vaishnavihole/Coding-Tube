@@ -11,7 +11,7 @@ function Home() {
           channel: 'John Doe',
           thumbnail: 'https://picsum.photos/200/300?random=1',
           keywords: ['JavaScript', 'React', 'Node.js'],
-          videUrl: 'https://www.youtube.com/watch?v=tntOCGkgt98'
+          videoUrl: 'bMknfKXIFA8'
         },
           
          {
@@ -21,7 +21,7 @@ function Home() {
           channel: 'John Doe',
           thumbnail: 'https://picsum.photos/200/300?random=2',
           keywords: ['JavaScript', 'React', 'Node.js'],
-          videUrl: 'https://www.youtube.com/watch?v=tntOCGkgt98'
+          videoUrl: 'hdI2bqOjy3c'
         },
     
         {
@@ -31,7 +31,7 @@ function Home() {
           channel: 'John Doe',
           thumbnail: 'https://picsum.photos/200/300?random=3',
           keywords: ['JavaScript', 'React', 'Node.js'],
-          videUrl: 'https://www.youtube.com/watch?v=tntOCGkgt98'
+          videoUrl: '9VIiLJL0H4Y'
         }
       ];
          return (
@@ -45,13 +45,13 @@ function Home() {
              videoData.map(video => {
                return (
                  <div className="col-md-4">
-                     <Link to='/player' className="text-decoration-none">
+                     <Link to={`/player/${video.videUrl}`} className="text-decoration-none">
                  <VideoCard
                          key={video.id}
                         title={video.title}
                         description={video.description}
                         channel={video.channel}
-                        thumbnail={video.thumbnail}
+                        thumbnail={`https://i.ytimg.com/vi/${video.videoUrl}/maxresdefault.jpg`}
                         keywords={video.keywords}
                         videUrl={video.videUrl}
                         />

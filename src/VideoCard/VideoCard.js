@@ -4,7 +4,8 @@ import './VideoCard.css'
 function VideoCard(props) { 
     return (
         <div className="video-card-container">
-        <img src={props.thumbnail}    
+        <img src={props.thumbnail} 
+           
          className="video-card-thumbnail"/>
 
          <h6 className="video-card-title">{props.title}</h6>
