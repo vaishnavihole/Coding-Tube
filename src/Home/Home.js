@@ -1,5 +1,7 @@
 import React from 'react'
 import VideoCard from './../VideoCard/VideoCard';
+import './Home.css'
+import IcoSearch from './ico-search.png'
 import {Link} from 'react-router-dom';
 
 function Home() {
@@ -38,7 +40,13 @@ function Home() {
          <div className="container">
          <div className="title-container">
            <h1 className="text-center">Coding Tube</h1>
-         </div>
+          </div>
+
+          <div className="search-bar">
+          <img src={IcoSearch} className="ico-search" alt="search" />
+          <input type="text" className="input-search" placeholder="Search" />
+          </div>
+          
     
          <div className="row">
            {
