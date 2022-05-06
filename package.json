@@ -1,0 +1,17 @@
+{
+  "name": "coding-tube",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"cd client && npm start\" \"cd server && npm start\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.1.0",
+    "dotenv": "^16.0.0",
+    "env": "^0.0.2"
+  }
+}

@@ -13,7 +13,7 @@ function Home() {
 
   useEffect(() => {
 
-    axios.get('http://localhost:5000/videos/all').then(res => {
+    axios.get('/videos/all').then(res => {
       setVideoData(res.data);
    })
     

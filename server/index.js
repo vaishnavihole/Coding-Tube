@@ -2,13 +2,14 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const Video = require('./models/Video');
+require('dotenv').config();
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://vaishu:vaishnavi@cluster0.84emy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+mongoose.connect(
 {useNewUrlParser: true,
 useUnifiedTopology: true}, () => {
 console.log('Connected to mongoDB')
@@ -41,6 +42,14 @@ app.post('/videos/add', async(req,res) => {
       message:'Video added successfully'
     })
 });
+   if(process.env.NODE_ENV === "production") {
+   app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
+
+   app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'))
+  });
+}
+
 
 app.listen(5000, () =>{
     console.log('Server is running on port 5000');
