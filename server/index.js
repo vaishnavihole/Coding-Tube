@@ -17,9 +17,6 @@ console.log('Connected to mongoDB')
 });
 
 
-app.get('/', (req, res) =>{
-    res.send('This is home page');
-})
 
 app.get('/videos/all', async (req, res) =>{
   const videoData =  await Video.find();
