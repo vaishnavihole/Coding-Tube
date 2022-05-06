@@ -3,6 +3,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const Video = require('./models/Video');
 require('dotenv').config();
+const path = require('path');
 
 const app = express();
 
