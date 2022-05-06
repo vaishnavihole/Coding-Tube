@@ -1,41 +1,24 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import VideoCard from './../VideoCard/VideoCard';
 import './Home.css'
 import IcoSearch from './ico-search.png'
 import {Link} from 'react-router-dom';
 
+import axios from 'axios';
+
 function Home() {
-    const videoData = [
-        {
-          id: 1,
-          title: 'Introduction to React',
-          description: 'This is the best video ever',
-          channel: 'John Doe',
-          thumbnail: 'https://picsum.photos/200/300?random=1',
-          keywords: ['JavaScript', 'React', 'Node.js'],
-          videoUrl: 'bMknfKXIFA8'
-        },
-          
-         {
-          id: 2,
-          title: 'Introduction to C Programming',
-          description: 'This is the best video ever',
-          channel: 'John Doe',
-          thumbnail: 'https://picsum.photos/200/300?random=2',
-          keywords: ['JavaScript', 'React', 'Node.js'],
-          videoUrl: 'hdI2bqOjy3c'
-        },
+   
+
+  const [videoData, setVideoData] =useState([]);
+
+  useEffect(() => {
+
+    axios.get('http://localhost:5000/videos/all').then(res => {
+      setVideoData(res.data);
+   })
     
-        {
-          id: 3,
-          title: 'Introduction to JavaScprit',
-          description: 'This is the best video ever',
-          channel: 'John Doe',
-          thumbnail: 'https://picsum.photos/200/300?random=3',
-          keywords: ['JavaScript', 'React', 'Node.js'],
-          videoUrl: '9VIiLJL0H4Y'
-        }
-      ];
+  }, [])
+     
          return (
          <div className="container">
          <div className="title-container">
