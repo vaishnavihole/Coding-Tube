@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const Video = require('./models/Video');
+const User = require('./models/User');
 require('dotenv').config();
 const path = require('path');
 
@@ -40,6 +41,43 @@ app.post('/videos/add', async(req,res) => {
       message:'Video added successfully'
     })
 });
+
+app.post("/user/add",async(req, res) => {
+  const user = new User({
+    fullName: req.body.fullName,
+    email:  req.body.email,
+    password: req.body.password,
+  })
+
+  const result = await user.save();
+
+  res.send({
+    message: "User added successfully",
+    user: result
+  });
+})
+
+app.post("/user/login", async(req, res) =>{
+  const user = await User.findOne({
+    email: req.body.email,
+    password: req.body.password,
+  })
+
+  if(user) {
+    res.send({
+    status: "success",
+    message: "User logged in successfully",
+    user: user
+    })
+  }
+  else{
+    res.send({
+      status: "failure",
+      message: "User not found",
+    })
+  }
+});
+  
    if(process.env.NODE_ENV === "production") {
    app.use(express.static(path.join(__dirname, '..', 'client', 'build')));
 

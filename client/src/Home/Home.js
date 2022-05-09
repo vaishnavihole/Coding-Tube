@@ -24,6 +24,12 @@ function Home() {
          <div className="title-container">
            <h1 className="text-center">Coding Tube</h1>
           </div>
+          <div>
+             <Link to="/login" className="btn  btn-sm btn-warning">
+               Admin Login
+             </Link>
+          
+          </div>
 
           <div className="search-bar">
           <img src={IcoSearch} className="ico-search" alt="search" />

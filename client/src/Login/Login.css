@@ -1,0 +1,25 @@
+ .btn-login{
+   width: 200px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+
+}
+.admin-login{
+    background-color: white;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px double black;
+}
+.img-lock{
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
