@@ -38,7 +38,7 @@ function Login() {
                 class="form-control"
                  id="userEmail"
                  placeholder="name@example.com"
-                 onChange={(e) => setEmail(e.traget.value)} />
+                 onChange={(e) => setEmail(e.target.value)} />
                  
             </div>
             <div className="mb-4">
@@ -47,7 +47,7 @@ function Login() {
                 class="form-control"
                  id="userPassword"
                  placeholder="password@123" 
-                 onChange={(e) => setPassword(e.traget.value)} />
+                 onChange={(e) => setPassword(e.target.value)} />
                  
                  
              </div>
