@@ -1,23 +1,44 @@
 import React , {useState} from 'react'
 import axios  from 'axios'
 import "./Login.css"
-import ImgLock from "./lock.png" 
+import Swal from 'sweetalert2'
+import {useNavigate} from 'react-router-dom'
+import ImgLock from "./lock.png"
 
 function Login() {
+
+  let navigate = useNavigate();
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
   async function checkLogin(){
-    const responce = await axios.post("/user/login",{
+    const response = await axios.post("/user/login",{
       email: email,
       password: password,
     })
-    if(responce.data.status === "success"){
-      alert("Login Successful")
+    if(response.data.status === "success"){
+      localStorage.setItem("email", response.data.user.email);
+      localStorage.setItem("fullName", response.data.user.fullName);
+
+      Swal.fire({
+        title: 'Success!',
+        text: 'Login Sucess🤗...',
+        icon: 'success'
+      })
+      navigate("/dashboard")
+      
     }
     
     else{
-      alert("Login Failed")
+      Swal.fire({
+        title: 'Error!',
+        text: 'Login Failed...😭',
+        icon: 'error',
+        confirmButtonText: 'Try Again'
+
+        
+      })
 
     }
   }

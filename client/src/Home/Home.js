@@ -42,7 +42,7 @@ function Home() {
              videoData.map(video => {
                return (
                  <div className="col-md-4">
-                     <Link to={`/player/${video.videUrl}`} className="text-decoration-none">
+                     <Link to={`/player/${video.videoUrl}`} className="text-decoration-none">
                  <VideoCard
                          key={video.id}
                         title={video.title}
@@ -50,7 +50,7 @@ function Home() {
                         channel={video.channel}
                         thumbnail={`https://i.ytimg.com/vi/${video.videoUrl}/maxresdefault.jpg`}
                         keywords={video.keywords}
-                        videUrl={video.videUrl}
+                        videUrl={video.videoUrl}
                         />
                         </Link>
                         </div>
