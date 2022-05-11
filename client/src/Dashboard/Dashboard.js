@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react'
+import React, {useEffect,useState} from 'react'
 import "./Dashboard.css"
 
 import {Navigate, useNavigate} from 'react-router-dom'
 import Swal from 'sweetalert2'
+import axios from 'axios';
 
 function Dashboard() {
 
@@ -20,6 +21,44 @@ function Dashboard() {
                  })
                 }
    }, []); 
+
+
+   const [title,setTitle] = useState("")
+   const [description,setDescription] = useState("")
+   const [channel,setChannel] = useState("")
+   const [keywords,setKeywords] = useState("")
+   const [videoUrl,setVideoUrl] = useState("")
+
+   async function addVideo(){
+       const response = await axios.post("/videos/add",{
+           id: Math.floor(Math.random() * 1000000),
+           title: title,
+           description: description,
+           channel: channel,
+           keywords: keywords,
+           videoUrl: videoUrl,
+       })
+
+       if(response)
+       {
+           Swal.fire({
+               title: 'Success',
+               text:  'Video Added Successfully...🤗',
+               icon:  'success',
+              })
+              navigate("/")
+       }
+       else{
+           Swal.fire({
+               title: 'Error',
+               text: 'Video Not Added...😭',
+               icon: 'error',
+               confimButtonText: 'Try Again',
+           })
+       }
+   }
+
+
     return (
         <div className='container'>
          <div className="title-container">
@@ -51,30 +90,42 @@ function Dashboard() {
                   <form>
                       <div className='mb-4'>
                      <label htmlFor="title">Title</label>
-                     <input type="text" className="form-control" id="title" placeholder="Enter Title" />
+                     <input type="text" className="form-control" id="title" placeholder="Enter Title"
+                     onChange={(e) => setTitle(e.target.value)}
+                     />
                       </div>
 
                       <div className='mb-4'>
                      <label htmlFor="Description">Description</label>
-                     <textarea className="form-control" id="description" row="4" placeholder="Enter Description" />
+                     <textarea className="form-control" id="description" row="4" placeholder="Enter Description" 
+                     onChange={(e) => setDescription(e.target.value)}
+                     ></textarea>
                       </div>
 
                       <div className='mb-4'>
                      <label htmlFor="channel">Channel</label>
-                     <input type="text" className="form-control" id="channel" placeholder="Enter Channel" />
+                     <input type="text" className="form-control" id="channel" placeholder="Enter Channel"
+                     onChange={(e) => setChannel(e.target.value)}
+                     />
                       </div>
 
                       <div className='mb-4'>
                      <label htmlFor="keywords">Keywords</label>
-                     <input type="text" className="form-control" id="keywords" placeholder="Enter Keywords" />
+                     <input type="text" className="form-control" id="keywords" placeholder="Enter Keywords"
+                     onChange={(e) => setKeywords(e.target.value)}
+                     />
                       </div>
 
                       <div className='mb-4'>
                      <label htmlFor="videoUrl">VideoUrl</label>
-                     <input type="text" className="form-control" id="videoUrl" placeholder="Enter VideoUrl" />
+                     <input type="text" className="form-control" id="videoUrl" placeholder="Enter VideoUrl" 
+                     onChange={(e) => setVideoUrl(e.target.value)}
+                     />
                       </div>
 
-                      <button type="button" className="btn btn-success btn-lg btn-add-video " >
+                      <button type="button" className="btn btn-success btn-lg btn-add-video " 
+                      onClick={addVideo}
+                      >
                       Add Video
                       </button>
                   </form>

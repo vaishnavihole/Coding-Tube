@@ -1,4 +1,4 @@
-import React , {useState} from 'react'
+import React , {useState,useEffect} from 'react'
 import axios  from 'axios'
 import "./Login.css"
 import Swal from 'sweetalert2'
@@ -8,6 +8,14 @@ import ImgLock from "./lock.png"
 function Login() {
 
   let navigate = useNavigate();
+
+  useEffect(() =>{
+    if(localStorage.getItem('email') && localStorage.getItem('fullName'))
+        {
+           navigate("/dashboard")
+        }
+
+  }, [])
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
