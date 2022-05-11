@@ -123,7 +123,7 @@ function Dashboard() {
                      />
                       </div>
 
-                      <button type="button" className="btn btn-success btn-lg btn-add-video " 
+                      <button type="button" className="custom-btn  btn-lg btn-add-video " 
                       onClick={addVideo}
                       >
                       Add Video

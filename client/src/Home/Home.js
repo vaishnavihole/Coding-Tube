@@ -10,6 +10,7 @@ function Home() {
    
 
   const [videoData, setVideoData] =useState([]);
+  const [searchTerm, setSearchTerm] =useState('');
 
   useEffect(() => {
 
@@ -18,6 +19,16 @@ function Home() {
    })
     
   }, [])
+
+  useEffect(() =>{
+
+    axios.post('/videos/search',{
+      searchTerm: searchTerm
+    }).then(res =>{
+      setVideoData(res.data);
+    })
+
+  }, [searchTerm])
      
          return (
          <div className="container">
@@ -33,7 +44,9 @@ function Home() {
 
           <div className="search-bar">
           <img src={IcoSearch} className="ico-search" alt="search" />
-          <input type="text" className="input-search" placeholder="Search" />
+          <input type="text" className="input-search" placeholder="Search" 
+          onChange={(e) => setSearchTerm(e.target.value)}
+          />
           </div>
           
     

@@ -1,5 +1,5 @@
 body {
-  background-color: #cce6ff;
+  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
 }
 
 code {
@@ -13,3 +13,19 @@ code {
   margin: 5px;
 
 }
+
+.custom-btn{
+  border-radius: 15px;
+  box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+  background-color: #ffb366;
+
+}
+
+.custom-btn:hover{
+  box-shadow: 3px 3px 2px black;
+  color: white;
+
+}
+
+
+

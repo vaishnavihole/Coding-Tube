@@ -24,6 +24,14 @@ app.get('/videos/all', async (req, res) =>{
     res.send(videoData);
   });
 
+  app.post("/videos/search", async(req,res) => {
+    // find videos like search term
+    const videoData = await Video.find({
+      title: { $regex: req.body.searchTerm, $options: "i" } 
+    });
+    res.send(videoData);
+  }) 
+
 app.post('/videos/add', async(req,res) => {
     const videoObject = {
       id: req.body.id,

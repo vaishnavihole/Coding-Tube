@@ -82,7 +82,7 @@ function Login() {
              </div>
 
              <div className="mb-4">
-                 <button type="button" className="btn btn-warning  btn-lg btn-login"
+                 <button type="button" className=" custom-btn  btn-lg btn-login"
                  onClick={checkLogin}
                  >Login</button>
              </div>
