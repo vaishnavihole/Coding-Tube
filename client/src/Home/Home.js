@@ -61,7 +61,7 @@ function Home() {
                         title={video.title}
                         description={video.description}
                         channel={video.channel}
-                        thumbnail={`https://i.ytimg.com/vi/${video.videoUrl}/maxresdefault.jpg`}
+                        thumbnail={`https://i.ytimg.com/vi/${video.videoUrl}/hqdefault.jpg`}
                         keywords={video.keywords}
                         videUrl={video.videoUrl}
                         />
