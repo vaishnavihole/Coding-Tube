@@ -6,7 +6,16 @@ function VideoCard(props) {
     const keywordsMap = {
         'JavaScript': 'bg-warning text-dark',
         'React':  'bg-info text-dark',
-        'Node.js': 'bg-primary'
+        'Node.js': 'bg-primary',
+        'C': 'bg-primary text-white',
+        'C++': 'bg-primary text-white',
+        'Python': 'bg-warning text-dark',
+        'Express': 'bg-info text-white',
+        'MongoDB': 'bg-primary text-white',
+        'Java': 'bg-success text-white',
+        'PHP': 'bg-secondary text-white',
+        'Podcast': 'bg-secondary text-white',
+        'GitHub': 'bg-dark text-white',
     }
     return (
         <div className="video-card-container">
