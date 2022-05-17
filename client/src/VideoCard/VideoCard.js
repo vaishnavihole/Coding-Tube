@@ -23,7 +23,7 @@ function VideoCard(props) {
            
          className="video-card-thumbnail"/>
 
-         <h6 className="video-card-title">{props.title}</h6>
+         <h6 className="video-card-title mt-2">{props.title}</h6>
           <p className="video-card-description">{props.description}</p>
           <p>
               {props.keywords.map(keyword =>{
